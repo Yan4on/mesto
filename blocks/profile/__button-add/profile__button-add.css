@@ -5,7 +5,7 @@
     background: transparent;
     border: 2px solid #fff;
     outline: none;
-    background-image: url("./image/cross.svg");
+    background-image: url("../../../image/cross.svg");
     background-position: center;
     background-repeat: no-repeat;
 }
