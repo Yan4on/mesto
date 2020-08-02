@@ -12,3 +12,9 @@
     grid-gap: 21px 18px;
     padding-bottom: 70px;
 }
+
+@media screen and (max-width: 767px) {
+.grid-cards {
+    padding-bottom: 39px;
+    }
+}
