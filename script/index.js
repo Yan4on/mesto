@@ -15,12 +15,15 @@ function openPopup() {
   popup.classList.add('popup_open');
 }
 
+
 function closePopup() {
     popup.classList.remove('popup_open');
 }
 
+
 buttonEdit.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
+
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
@@ -28,5 +31,6 @@ function formSubmitHandler (evt) {
   profileInterst.textContent = formInterst.value;
   closePopup();
 }
+
 
 form.addEventListener('submit', formSubmitHandler);

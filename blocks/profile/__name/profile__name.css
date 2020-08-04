@@ -1,7 +1,7 @@
 .profile__name {
     display: inline-block;
     max-width: 360px;
-    margin: 0 17px 0 0;
+    margin: 0 15px 0 0;
     vertical-align: middle;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -13,9 +13,10 @@
 
 @media screen and (max-width: 767px) {
 .profile__name {
+    max-width: 280px;
     font-size: 27px;
     line-height: 56px;
     text-align: center;
-    margin-right: 24px;
+    margin-right: 0;
     }
 }
