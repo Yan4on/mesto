@@ -21,10 +21,6 @@ function closePopup() {
 }
 
 
-buttonEdit.addEventListener('click', openPopup);
-buttonClose.addEventListener('click', closePopup);
-
-
 function formSubmitHandler (evt) {
   evt.preventDefault();
   profileName.textContent = formName.value;
@@ -34,3 +30,6 @@ function formSubmitHandler (evt) {
 
 
 form.addEventListener('submit', formSubmitHandler);
+
+buttonEdit.addEventListener('click', openPopup);
+buttonClose.addEventListener('click', closePopup);

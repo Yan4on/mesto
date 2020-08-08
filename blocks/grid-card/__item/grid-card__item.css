@@ -1,4 +1,6 @@
 .grid-card__item {
-    width: 100%;
     min-height: 361px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 10px;
 }
