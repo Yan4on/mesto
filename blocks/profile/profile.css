@@ -1,13 +1,3 @@
-@import url('./__wrapper/profile__wrapper.css');
-@import url('./__avatar/profile__avatar.css');
-@import url('./__form/profile__form.css');
-@import url('./__name/profile__name.css');
-@import url('./__interst/profile__interst.css');
-@import url('./__button-add/profile__button-add.css');
-@import url('./__button-edit/profile__button-edit.css');
-
-
-
 .profile {
     display: flex;
     justify-content: space-between;
