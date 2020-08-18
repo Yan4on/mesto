@@ -50,7 +50,6 @@ window.onload = function () {
     closePopup("profile");
   });
   const formContactInfo = document.querySelector(".form__contact-info");
-  let formWrap = document.querySelector(".form__wrap");
   let formName = document.querySelector(".form__contact-name");
   let formInterst = document.querySelector(".form__contact-interst");
   form.addEventListener("submit", formSubmitHandler);
