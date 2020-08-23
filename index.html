@@ -10,13 +10,13 @@
 
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./image/logo.svg" alt="логотип Mesto.Russia">
+        <img class="header__logo" src="./images/logo.svg" alt="логотип Mesto.Russia">
     </header>
     <main class="content">
 
         <section class="profile">
             <div class="profile__wrapper">
-                <img src="./image/kusto.jpg" class="profile__avatar" alt="Аватар пользователя">
+                <img src="./images/kusto.jpg" class="profile__avatar" alt="Аватар пользователя">
                 <div class="profile__form">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__button-edit" type="button"></button>
@@ -36,44 +36,39 @@
 
     <div class="popup">
         <div class="popup__container">
-            <button class="form__close-button" type="button"></button>
-
-            <div class="form__contact-info">
-                <h2 class="form__title">Редактировать профиль</h2>
-                <form class="form" action="#" name="form">
-                    <input type="text" name="name" value="Жак-Ив Кусто" class="form__contact-name">
-                    <input type="text" name="interst" value="Исследователь океана" class="form__contact-interst">
-                    <button type="submit" class="form__submit">Сохранить</button>
-                </form>
-            </div>
+            <form class="form" action="#" name="form">
+                <div class="form__contact-info">
+                    <h2 class="form__title">Редактировать профиль</h2>
+                </div>
+                <input type="text" name="name" value="Жак-Ив Кусто" class="form__contact-name">
+                <input type="text" name="interst" value="Исследователь океана" class="form__contact-interst">
+                <button type="submit" class="form__submit">Сохранить</button>
+                <button class="form__close-button" type="button"></button>
+            </form>
         </div>
     </div>
 
     <div class="popup popup__add-img">
         <div class="popup__container">
-            <button class="form__close-button" type="button"></button>
-
-            <div class="form__new-item">
-                <h2 class="form__title">Новое место</h2>
-                <form class="form" action="#" name="form">
-                    <input type="text" name="name" class="form__item-name" placeholder="Название">
-                    <input type="text" name="url" placeholder="Ссылка на картинку" class="form__link-img">
-                    <button type="submit" class="form__submit">Создать</button>
-                </form>
-            </div>
+            <form class="form" action="#" name="form">
+                <div class="form__new-item">
+                    <h2 class="form__title">Новое место</h2>
+                </div>
+                <input type="text" name="name" class="form__item-name" placeholder="Название">
+                <input type="text" name="url" placeholder="Ссылка на картинку" class="form__link-img">
+                <button type="submit" class="form__submit">Создать</button>
+                <button class="form__close-button" type="button"></button>
+            </form>
         </div>
     </div>
 
     <div class="popup popup__big-pic">
         <div class="popup__container popup__container_background">
             <button class="form__close-button" type="button"></button>
-
             <img class="popup__img-big" src="" alt="Увеличенное изображение карточки">
             <h3 class="popup__title"></h3>
         </div>
     </div>
-
-
 
     <script src="./script/index.js"></script>
 
