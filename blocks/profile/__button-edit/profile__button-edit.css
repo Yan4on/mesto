@@ -4,8 +4,8 @@
   padding: 0;
   vertical-align: middle;
   background: transparent;
-  background-image: url("../../../image/Rectangle.svg"),
-    url("../../../image/edit_buton.svg");
+  background-image: url("../../../images/Rectangle.svg"),
+    url("../../../images/edit_buton.svg");
   background-size: contain;
   background-position: center;
   border: none;
