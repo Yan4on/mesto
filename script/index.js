@@ -1,39 +1,65 @@
 window.onload = function () {
 
   //profile form
-  const profilePopup = document.querySelector(".popup");
+  const profilePopup = document.querySelector(".popup__profile");
   const buttonEdit = document.querySelector(".profile__button-edit");
   const profileButtonClose = profilePopup.querySelector(".form__close-button");
   const profileInputName = profilePopup.querySelector(".form__contact-name");
   const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
-  const profileButtonSave = profilePopup.querySelector(".form__submit");
   const profileName = document.querySelector(".profile__name");
   const profileInterst = document.querySelector(".profile__interst");
   const form = document.querySelector(".form");
+
+  /* Открываем попап*/
+  function openPopup(popup) {
+    popup.classList.add('popup_open');
+  }
+
+  /*Закрывающая попап */
+  function closePopup(popup) {
+    popup.classList.remove('popup_open');
+  }
+
+  /*Настройки попапа EditProfile*/
+  function openProfilePopup() {
+    formName.value = profileName.textContent;
+    formInterst.value = profileInterst.textContent;
+    openPopup(profilePopup);
+  }
+
+  // События кнопок открытия/закрытия попапа Profile
   buttonEdit.addEventListener("click", function () {
-    openPopup("profile");
+    openProfilePopup();
   });
   profileButtonClose.addEventListener("click", function () {
-    closePopup("profile");
+    closePopup(profilePopup);
   });
-  const formContactInfo = document.querySelector(".form__contact-info");
-  let formName = document.querySelector(".form__contact-name");
-  let formInterst = document.querySelector(".form__contact-interst");
+
+  const formName = profileInputName;
+  const formInterst = profileInputInfo;
   form.addEventListener("submit", formSubmitHandler);
 
-  //image form
+  //Add-image
   const imagePopup = document.querySelector(".popup__add-img");
   const imageAddPopupButton = document.querySelector(".profile__button-add");
   const imageAddButtonClose = imagePopup.querySelector(".form__close-button");
   const imageInputName = imagePopup.querySelector(".form__item-name");
   const imageInputUrl = imagePopup.querySelector(".form__link-img");
-  const imageAddButton = imagePopup.querySelector(".form__submit");
   const imageForm = imagePopup.querySelector(".form");
+
+  /*Настрайки попапа add-image*/
+  function imageAddPopup() {
+    imageInputName.value = "";
+    imageInputUrl.value = "";
+    openPopup(imagePopup);
+  }
+
+  // События кнопок открытия/закрытия попапа add-image
   imageAddPopupButton.addEventListener("click", function () {
-    openPopup("imageAdd");
+    imageAddPopup();
   });
   imageAddButtonClose.addEventListener("click", function () {
-    closePopup("imageAdd");
+    closePopup(imagePopup);
   });
   imageForm.addEventListener("submit", addImageHandler);
 
@@ -43,40 +69,21 @@ window.onload = function () {
   const bigImage = bigPicPopup.querySelector("img");
   const bigImageName = bigPicPopup.querySelector("h3");
   bigPicButtonClose.addEventListener("click", function () {
-    closePopup("big-pic");
+    closePopup(bigPicPopup);
   });
 
+  /*Настраиваем попап Big-pic*/
 
+  profileButtonClose.addEventListener("click", function () {
+    closePopup(bigPicPopup);
+  });
 
-  function openPopup(type) {
-    if (type == "profile") {
-      formName.value = profileName.textContent;
-      formInterst.value = profileInterst.textContent;
-      profilePopup.classList.add("popup_open");
-    } else if (type == "imageAdd") {
-      imageInputName.value = "";
-      imageInputUrl.value = "";
-      imagePopup.classList.add("popup_open");
-    } else if (type == "big-pic") {
-      bigPicPopup.classList.add("popup_open");
-    }
-  }
-
-  function closePopup(type) {
-    if (type == "profile") {
-      profilePopup.classList.remove("popup_open");
-    } else if (type == "imageAdd") {
-      imagePopup.classList.remove("popup_open");
-    } else if (type == "big-pic") {
-      bigPicPopup.classList.remove("popup_open");
-    }
-  }
 
   function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = formName.value;
     profileInterst.textContent = formInterst.value;
-    closePopup("profile");
+    closePopup(profilePopup);
   }
 
   function addImageHandler(e) {
@@ -87,9 +94,9 @@ window.onload = function () {
       const li = addNewCard(name, url);
       cardsContainer.appendChild(li);
     }
-    closePopup("imageAdd");
+    closePopup(imagePopup);
   }
-
+  // Добавление карточки и ее настройка
   function addNewCard(name, url) {
     const li = document.createElement("li");
     li.className = "grid-card__item";
@@ -106,7 +113,7 @@ window.onload = function () {
     img.addEventListener("click", function () {
       bigImage.src = url;
       bigImageName.textContent = name;
-      openPopup("big-pic");
+      openPopup(bigPicPopup);
     });
     const panel = document.createElement("div");
     panel.className = "grid-card__wrapper";
@@ -135,4 +142,3 @@ window.onload = function () {
 
   init();
 };
-
