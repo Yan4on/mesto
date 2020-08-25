@@ -1,4 +1,4 @@
-.form__close-button {
+.popup__close-button {
     width: 41px;
     height: 41px;
     padding: 0;
@@ -14,7 +14,7 @@
 }
 
 
-.form__close-button:hover {
+.popup__close-button:hover {
     opacity: .6;
     cursor: pointer;
     transition: opacity 0.2s linear;

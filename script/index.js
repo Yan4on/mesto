@@ -1,9 +1,9 @@
 window.onload = function () {
 
   //profile form
-  const profilePopup = document.querySelector(".popup__profile");
+  const profilePopup = document.querySelector(".popup_profile");
   const buttonEdit = document.querySelector(".profile__button-edit");
-  const profileButtonClose = profilePopup.querySelector(".form__close-button");
+  const profileButtonClose = profilePopup.querySelector(".popup__close-button");
   const profileInputName = profilePopup.querySelector(".form__contact-name");
   const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
   const profileName = document.querySelector(".profile__name");
@@ -40,9 +40,9 @@ window.onload = function () {
   form.addEventListener("submit", formSubmitHandler);
 
   //Add-image
-  const imagePopup = document.querySelector(".popup__add-img");
+  const imagePopup = document.querySelector(".popup_add-img");
   const imageAddPopupButton = document.querySelector(".profile__button-add");
-  const imageAddButtonClose = imagePopup.querySelector(".form__close-button");
+  const imageAddButtonClose = imagePopup.querySelector(".popup__close-button");
   const imageInputName = imagePopup.querySelector(".form__item-name");
   const imageInputUrl = imagePopup.querySelector(".form__link-img");
   const imageForm = imagePopup.querySelector(".form");
@@ -64,8 +64,8 @@ window.onload = function () {
   imageForm.addEventListener("submit", addImageHandler);
 
   //big-screen form
-  const bigPicPopup = document.querySelector(".popup__big-pic");
-  const bigPicButtonClose = bigPicPopup.querySelector(".form__close-button");
+  const bigPicPopup = document.querySelector(".popup_big-pic");
+  const bigPicButtonClose = bigPicPopup.querySelector(".popup__close-button");
   const bigImage = bigPicPopup.querySelector("img");
   const bigImageName = bigPicPopup.querySelector("h3");
   bigPicButtonClose.addEventListener("click", function () {
