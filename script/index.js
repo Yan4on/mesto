@@ -10,14 +10,16 @@ window.onload = function () {
   const profileInterst = document.querySelector(".profile__interst");
   const form = document.querySelector(".form");
 
-  /* Открываем попап*/
+  /* Открываем попап */
   function openPopup(popup) {
     popup.classList.add('popup_open');
+    addPopupCloseHandler(popup); /*закрываем клавишей esc и клик по оверлей */
   }
 
   /*Закрывающая попап */
   function closePopup(popup) {
     popup.classList.remove('popup_open');
+    removePopupHandler(popup); /*удаляем обработчик клавиши esc и клик по оверлей */
   }
 
   /*Настройки попапа EditProfile*/
@@ -96,6 +98,29 @@ window.onload = function () {
     }
     closePopup(imagePopup);
   }
+
+  /*Функция, закрывающая попап по Escape или при клике по оверлею*/
+  function closePopupEscOverLay(evt) {
+    const popupOpened = document.querySelector('.popup_open');
+
+    if (evt.key === 'Escape' || evt.target === popupOpened) {
+      closePopup(popupOpened);
+    }
+  }
+
+  /*Навешиваем обработчики для закрытия попапа по Escape и по клику по оверлею*/
+function addPopupCloseHandler(popup) {
+  document.body.addEventListener('keyup', closePopupEscOverLay);
+  popup.addEventListener('click', closePopupEscOverLay);
+}
+
+ /*Удаляем обработчики*/
+ function removePopupHandler(popup) {
+  document.body.removeEventListener('keyup', closePopupEscOverLay);
+  popup.removeEventListener('click', closePopupEscOverLay);
+}
+  
+
   // Добавление карточки и ее настройка
   function addNewCard(name, url) {
     const li = document.createElement("li");

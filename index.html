@@ -37,12 +37,12 @@
     <div class="popup popup_profile">
         <div class="popup__container">
             <button class="popup__close-button" type="button"></button>
-            <form class="form" action="#" name="form">
+            <form class="form" action="#" name="form"novalidate>
                 <div class="form__contact-info">
                     <h2 class="form__title">Редактировать профиль</h2>
                 </div>
-                <input type="text" name="name" value="Жак-Ив Кусто" class="form__contact-name">
-                <input type="text" name="interst" value="Исследователь океана" class="form__contact-interst">
+                <input type="text" id="input-name" name="name" value="Жак-Ив Кусто" class="form__contact-name" minlength="2" maxlength="40"required>
+                <input type="text" id="input-interst" name="interst" value="Исследователь океана" class="form__contact-interst"minlength="2" maxlength="200"required>
                 <button type="submit" class="form__submit">Сохранить</button>
             </form>
         </div>
@@ -72,6 +72,7 @@
 
     <script src="./script/index.js"></script>
     <script src="./script/initial-cards.js"></script>
+    <script src="./script/validate.js"></script>
 
 </body>
 
