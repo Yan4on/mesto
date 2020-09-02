@@ -8,7 +8,9 @@ window.onload = function () {
   const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
   const profileName = document.querySelector(".profile__name");
   const profileInterst = document.querySelector(".profile__interst");
-  const form = document.querySelector(".form");
+  const form = document.querySelector('.form');
+  
+  
 
   /* Открываем попап */
   function openPopup(popup) {

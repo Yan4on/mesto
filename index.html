@@ -36,28 +36,38 @@
 
     <div class="popup popup_profile">
         <div class="popup__container">
-            <button class="popup__close-button" type="button"></button>
-            <form class="form" action="#" name="form"novalidate>
+
+            <form class="form" action="#" name="form" novalidate>
                 <div class="form__contact-info">
                     <h2 class="form__title">Редактировать профиль</h2>
                 </div>
-                <input type="text" id="input-name" name="name" value="Жак-Ив Кусто" class="form__contact-name" minlength="2" maxlength="40"required>
-                <input type="text" id="input-interst" name="interst" value="Исследователь океана" class="form__contact-interst"minlength="2" maxlength="200"required>
-                <button type="submit" class="form__submit">Сохранить</button>
+                <input type="text" id="name-input" name="name" class="form__input form__contact-name" 
+                placeholder="Имя" minlength="2" maxlength="40" required>
+                <span class="popup__input-error" id="name-input-error"></span>
+                <input type="text" id="interst-input" name="interst" placeholder="О себе"
+                    class="form__input form__contact-interst" minlength="2" maxlength="200" required>
+                <span class="popup__input-error" id="interst-input-error"></span>
+                <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>
+                <button class="popup__close-button" type="button"></button>
             </form>
         </div>
     </div>
 
     <div class="popup popup_add-img">
         <div class="popup__container">
-            <button class="popup__close-button" type="button"></button>
-            <form class="form" action="#" name="form">
+
+            <form class="form" action="#" name="form" novalidate>
                 <div class="form__new-item">
                     <h2 class="form__title">Новое место</h2>
                 </div>
-                <input type="text" name="name" class="form__item-name" placeholder="Название">
-                <input type="text" name="url" placeholder="Ссылка на картинку" class="form__link-img">
-                <button type="submit" class="form__submit">Создать</button>
+                <input type="text" id="title-input" name="name" class="form__input form__item-name"
+                    placeholder="Название" minlength="2" maxlength="40" required>
+                <span class="popup__input-error" id="title-input-error"></span>
+                <input type="url" id="link-input" name="url" class="form__input form__link-img"
+                    placeholder="Ссылка на картинку" required>
+                <span class="popup__input-error" id="link-input-error"></span>
+                <button type="submit" class="form__submit form__submit_disabled">Создать</button>
+                <button class="popup__close-button" type="button"></button>
             </form>
         </div>
     </div>
