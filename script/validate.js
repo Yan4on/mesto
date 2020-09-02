@@ -1,4 +1,4 @@
-/*окрывает ошибку*/
+/*окрывам ошибку*/
 const showInputError = (settingsValidation, popupElement, inputElement, errorMessage) => {
     const errorElement = popupElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(settingsValidation.inputErrorClass);
@@ -6,7 +6,7 @@ const showInputError = (settingsValidation, popupElement, inputElement, errorMes
     errorElement.classList.add(settingsValidation.errorClass);
 };
 
-/*Скрывыет ошибку*/
+/*Скрывыем ошибку*/
 const hideInputError = (settingsValidation, popupElement, inputElement) => {
     const errorElement = popupElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(settingsValidation.inputErrorClass);
@@ -51,7 +51,7 @@ const enableValidation = (settingsValidation) => {
     });
 };
 
-/*Выбираем форуму и ее элементы*/
+/*Выбираем форму и ее элементы*/
 enableValidation({
     formSelector: '.form',
     inputSelector: '.form__input',
