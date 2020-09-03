@@ -1,4 +1,4 @@
-/*окрывам ошибку*/
+/*открывам ошибку*/
 const showInputError = (settingsValidation, popupElement, inputElement, errorMessage) => {
     const errorElement = popupElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(settingsValidation.inputErrorClass);
@@ -31,7 +31,7 @@ const setEventListeners = (settingsValidation, popupElement) => {
 
     inputList.forEach((inputElement) => {
 
-        inputElement.addEventListener('input', function () {
+        inputElement.addEventListener('input', function() {
 
             checkInputValidity(settingsValidation, popupElement, inputElement);
             toggleButtonState(settingsValidation, inputList, buttonElement);
@@ -43,7 +43,7 @@ const setEventListeners = (settingsValidation, popupElement) => {
 const enableValidation = (settingsValidation) => {
     const formList = Array.from(document.querySelectorAll(settingsValidation.formSelector));
     formList.forEach((popupElement) => {
-        popupElement.addEventListener('submit', function (evt) {
+        popupElement.addEventListener('submit', function(evt) {
             evt.preventDefault();
         });
 
@@ -65,7 +65,7 @@ enableValidation({
 /*Проверяем валидность полей формы*/
 function hasInvalidInput(inputList) {
 
-    return inputList.some(function (input) {
+    return inputList.some(function(input) {
         return !input.validity.valid;
     })
 }
@@ -75,7 +75,7 @@ function toggleButtonState(settingsValidation, inputList, buttonElement) {
 
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(settingsValidation.inactiveButtonClass);
-        buttonElement.disabled = true; 
+        buttonElement.disabled = true;
     } else {
         buttonElement.classList.remove(settingsValidation.inactiveButtonClass);
         buttonElement.disabled = false;
