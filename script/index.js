@@ -31,10 +31,10 @@ function openProfilePopup() {
 }
 
 // События кнопок открытия/закрытия попапа Profile
-buttonEdit.addEventListener("click", function() {
+buttonEdit.addEventListener("click", function () {
     openProfilePopup();
 });
-profileButtonClose.addEventListener("click", function() {
+profileButtonClose.addEventListener("click", function () {
     closePopup(profilePopup);
 });
 
@@ -50,18 +50,14 @@ const imageInputName = imagePopup.querySelector(".form__item-name");
 const imageInputUrl = imagePopup.querySelector(".form__link-img");
 const imageForm = imagePopup.querySelector(".form");
 
-/*Настрайки попапа add-image*/
-function imageAddPopup() {
-    imageInputName.value = "";
-    imageInputUrl.value = "";
-    openPopup(imagePopup);
-}
+
 
 // События кнопок открытия/закрытия попапа add-image
-imageAddPopupButton.addEventListener("click", function() {
-    imageAddPopup();
+imageAddPopupButton.addEventListener("click", function imageAddPopup() {
+    openPopup(imagePopup);
+    imageForm.reset();
 });
-imageAddButtonClose.addEventListener("click", function() {
+imageAddButtonClose.addEventListener("click", function () {
     closePopup(imagePopup);
 });
 imageForm.addEventListener("submit", addImageHandler);
@@ -71,13 +67,13 @@ const bigPicPopup = document.querySelector(".popup_big-pic");
 const bigPicButtonClose = bigPicPopup.querySelector(".popup__close-button");
 const bigImage = bigPicPopup.querySelector("img");
 const bigImageName = bigPicPopup.querySelector("h3");
-bigPicButtonClose.addEventListener("click", function() {
+bigPicButtonClose.addEventListener("click", function () {
     closePopup(bigPicPopup);
 });
 
 /*Настраиваем попап Big-pic*/
 
-profileButtonClose.addEventListener("click", function() {
+profileButtonClose.addEventListener("click", function () {
     closePopup(bigPicPopup);
 });
 
@@ -89,16 +85,21 @@ function formSubmitHandler(evt) {
     closePopup(profilePopup);
 }
 
+
+/*Функция, добавляющая карточку*/
+function renderCard(name, url) {
+    const card = getNewCard(name, url); /*Создаем карточку*/
+    cardsContainer.prepend(card); /*Добавляем сформированную карточку в начало страницы*/
+}
+
 function addImageHandler(e) {
     e.preventDefault();
     const name = imageInputName.value;
     const url = imageInputUrl.value;
-    if (name && url) {
-        const card = getNewCard(name, url);
-        cardsContainer.appendChild(card);
-    }
+    renderCard(name, url)
     closePopup(imagePopup);
 }
+
 
 /*Функция, закрывающая попап по Escape или при клике по оверлею*/
 function closePopupEscOverLay(evt) {
@@ -129,30 +130,29 @@ function getNewCard(name, url) {
     const temp = document.getElementsByTagName("template")[0];
     const clon = temp.content.cloneNode(true);
     const removeCard = clon.querySelector(".grid-card__del");
-    removeCard.addEventListener("click", function() {
-      removeCard.parentNode.remove()        
+    removeCard.addEventListener("click", function () {
+        removeCard.parentNode.remove()
     });
     const img = clon.querySelector(".grid-card__img");
     img.src = url;
-    img.addEventListener("click", function() {
+    img.addEventListener("click", function () {
         bigImage.src = url;
         bigImageName.textContent = name;
         openPopup(bigPicPopup);
     });
-    const h3 = clon.querySelector(".grid-card__text");
-    h3.textContent = name;
-    const likebtn = clon.querySelector(".grid-card__like");
-    likebtn.addEventListener("click", function() {
-        likebtn.classList.toggle("grid-card__like_active");
+    const cardTitle = clon.querySelector(".grid-card__text");
+    cardTitle.textContent = name;
+    const likebtn = clon.querySelector('.grid-card__like').addEventListener('click', (event) => {
+        event.target.classList.toggle('grid-card__like_active');
     });
 
     return clon;
 }
 
+
 function init() {
-    initialCards.forEach(function(el) {
-        const card = getNewCard(el.name, el.link);
-        cardsContainer.append(card);
+    initialCards.forEach(function (el) {
+        renderCard(el.name, el.link)
     });
 }
 
