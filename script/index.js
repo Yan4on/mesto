@@ -17,19 +17,19 @@ const form = document.querySelector('.form');
 
 /* Открываем попап */
 function openPopup(popup) {
-    popup.classList.add('popup_open');
+    popup.classList.add('popup_opened');
     addPopupCloseHandler(popup); /*закрываем клавишей esc и клик по оверлей */
 }
 
 /*Закрывающая попап */
 function closePopup(popup) {
-    popup.classList.remove('popup_open');
+    popup.classList.remove('popup_opened');
     removePopupHandler(popup); /*удаляем обработчик клавиши esc и клик по оверлей */
 }
 
 /*Функция, закрывающая попап по Escape или при клике по оверлею*/
 function closePopupEscOverLay(evt) {
-    const popupOpened = document.querySelector('.popup_open');
+    const popupOpened = document.querySelector('.popup_opened');
 
     if (evt.key === 'Escape' || evt.target === popupOpened) {
         closePopup(popupOpened);
@@ -51,28 +51,28 @@ function removePopupHandler(popup) {
 
 /*Настройки попапа EditProfile*/
 function openProfilePopup() {
-    formName.value = profileName.textContent;
-    formInterst.value = profileInterst.textContent;
+    profileInputName.value = profileName.textContent;
+    profileInputInfo.value = profileInterst.textContent;
     openPopup(profilePopup);
 }
 
 // События кнопок открытия/закрытия попапа EditProfile
 buttonEdit.addEventListener("click", function () {
     openProfilePopup();
+    editProfileValidation.resetForm()
 });
 profileButtonClose.addEventListener("click", function () {
     closePopup(profilePopup);
 });
 
-const formName = profileInputName;
-const formInterst = profileInputInfo;
+
 form.addEventListener("submit", formSubmitHandler);
 
 /*Функция, отрабатывающая при нажатии кнопки сохранить в попапе с редактированием профиля*/
 function formSubmitHandler(evt) {
     evt.preventDefault();
-    profileName.textContent = formName.value;
-    profileInterst.textContent = formInterst.value;
+    profileName.textContent = profileInputName.value;
+    profileInterst.textContent = profileInputInfo.value;
     closePopup(profilePopup);
 }
 
@@ -86,9 +86,9 @@ const imageForm = imagePopup.querySelector(".form");
 
 
 // События кнопок открытия/закрытия попапа Add-image
-imageAddPopupButton.addEventListener("click", function imageAddPopup() {
+imageAddPopupButton.addEventListener("click", function () {
     openPopup(imagePopup);
-    imageForm.reset();
+    addCardValidation.resetForm()
 });
 imageAddButtonClose.addEventListener("click", function () {
     closePopup(imagePopup);
