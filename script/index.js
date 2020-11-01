@@ -2,17 +2,22 @@
 import { initialCards } from './initial-cards.js'; //импорт начальных карточек
 import Card from './Card.js'; //импорт стартовых карточек
 import FormValidator from './FormValidator.js';//импорт валидации
+import Section from './Section.js';//импорт валидации
+import UserInfo from './UserInfo.js'
+import Popup from './popup.js'
+import PopupWithForm from './PopupWithForm.js'
+
 
 
 //Форма профиля
-const profilePopup = document.querySelector(".popup_profile");
-const buttonEdit = document.querySelector(".profile__button-edit");
-const profileButtonClose = profilePopup.querySelector(".popup__close-button");
-const profileInputName = profilePopup.querySelector(".form__contact-name");
-const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
-const profileName = document.querySelector(".profile__name");
-const profileInterst = document.querySelector(".profile__interst");
-const form = document.querySelector('.form');
+export const profilePopup = document.querySelector(".popup_profile");
+export const buttonEdit = document.querySelector(".profile__button-edit");
+export const profileButtonClose = profilePopup.querySelector(".popup__close-button");
+export const profileInputName = profilePopup.querySelector(".form__contact-name");
+export const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
+export const profileName = document.querySelector(".profile__name");
+export const profileInterst = document.querySelector(".profile__interst");
+export const form = document.querySelector('.form');
 
 
 /* Открываем попап */
@@ -51,10 +56,11 @@ function removePopupHandler(popup) {
 
 /*Настройки попапа EditProfile*/
 function openProfilePopup() {
-    profileInputName.value = profileName.textContent;
-    profileInputInfo.value = profileInterst.textContent;
+      profileInputName.value = profileName.textContent;
+      profileInputInfo.value = profileInterst.textContent;
     openPopup(profilePopup);
 }
+
 
 // События кнопок открытия/закрытия попапа EditProfile
 buttonEdit.addEventListener("click", function () {
@@ -144,6 +150,7 @@ function addImageHandler(e) {
 }
 
 
+
 // Загружаем стартовые карточки
 function init() {
     initialCards.forEach(function (el) {
@@ -153,7 +160,7 @@ function init() {
 
 init();
 
-            // ВАЛИДАЦИЯ //
+// ВАЛИДАЦИЯ //
 /*Выбираем форму и ее элементы для валидации */
 const formSelectors = {
     formSelector: '.form',

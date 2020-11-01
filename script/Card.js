@@ -5,8 +5,10 @@ export default class Card {
         this._link = data.link;
         this._cardTemplate = cardTemplate;
         this._createImagePopup = createImagePopup;
+        
     }
 
+     // Получаем шаблон карточки
     _getTemplate() {
         this._card = document
             .querySelector(this._cardTemplate)
@@ -14,6 +16,13 @@ export default class Card {
             .querySelector('.grid-card')
             .cloneNode(true);
     }
+
+    // Получаем ссылку и название карточки
+  getCardInfo() {
+    const name = this._name;
+    const link = this._link;
+    return { name, link };
+  }
 
 
     /*Обработчик событий. Лайк*/
