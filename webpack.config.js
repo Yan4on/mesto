@@ -1,48 +1,68 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CssUrlRelativePlugin = require("css-url-relative-plugin");
 
 module.exports = {
-    entry: { main: "./script/index.js" },
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "main.js",
+    entry: {
+        main: path.resolve(__dirname, "./src/script/index.js"),
     },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                //loader: "babel-loader",
-                exclude: "/node_modules/",
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            },
 
-            {
-                test: /\.(png|svg|jpg|gif|woff2)$/,
-                loader: "file-loader",
-            },
-
-            {
-                test: /\.html$/,
-                loader: "html-loader",
-            },
-
-            {
-                test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader']
-            },
-
-        ],
+    output: {
+        path: path.resolve(__dirname, "./dist"),
+        filename: "[name].bundle.js",
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./index.html",
+            title: "webpack Boilerplate",
+            template: path.resolve(__dirname, "./src/index.html"), // шаблон
+            filename: "index.html", // название выходного файла
         }),
-        new MiniCssExtractPlugin(),
+        new CleanWebpackPlugin(),
+        new CssUrlRelativePlugin(),        
     ],
+    module: {
+        rules: [
+            // JavaScript
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ["babel-loader"],
+            },
+            // изображения
+            {
+                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+                
+                use:[
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: '[folder]/[name].[ext]',
+                        },
+                      },
+                ]
+            },
+
+            {
+                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+                type: "asset/inline",
+          
+            },
+
+            {
+                test: /\.(scss|css)$/,
+                use: [
+                    /*{
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: path.resolve(__dirname, "./src/style/index.css"),
+                        },
+                    },*/
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader",
+                ],
+            },
+        ],
+    },
 };
