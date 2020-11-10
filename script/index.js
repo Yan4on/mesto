@@ -15,7 +15,7 @@ export const profileButtonClose = profilePopup.querySelector(".popup__close-butt
 export const profileInputName = profilePopup.querySelector(".form__contact-name");
 export const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
 export const profileName = document.querySelector(".profile__name");
-export const profileWork = document.querySelector(".profile__interst");
+export const profileInterst = document.querySelector(".profile__interst");
 export const form = document.querySelector('.form');
 
 //Попап Add-image

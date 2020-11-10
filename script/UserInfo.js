@@ -1,19 +1,19 @@
 export default class UserInfo {
-  constructor(profileName, profileWork) {
+  constructor(profileName, profileInterst) {
     this._profileName = document.querySelector(profileName);
-    this._profileWork = document.querySelector(profileWork);
+    this._profileInterst = document.querySelector(profileInterst);
   }
 
   //получить данные со страницы
   getUserInfo() {
     const name = this._profileName.textContent;
-    const work = this._profileWork.textContent;
-    return { name, work };
+    const interst = this._profileInterst.textContent;
+    return { name, interst };
   }
 
   //установить данные на страницу
-  setUserInfo({ name, work }) {
+  setUserInfo({ name, interst }) {
     this._profileName.textContent = name;
-    this._profileWork.textContent = work;
+    this._profileInterst.textContent = interst;
   }
 }
