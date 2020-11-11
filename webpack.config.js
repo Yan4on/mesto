@@ -19,7 +19,7 @@ module.exports = {
             filename: "index.html", // название выходного файла
         }),
         new CleanWebpackPlugin(),
-        new CssUrlRelativePlugin(),        
+        new CssUrlRelativePlugin(),
     ],
     module: {
         rules: [
@@ -32,21 +32,20 @@ module.exports = {
             // изображения
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                
-                use:[
+
+                use: [
                     {
-                        loader: 'file-loader',
+                        loader: "file-loader",
                         options: {
-                          name: '[folder]/[name].[ext]',
+                            name: "[folder]/[name].[ext]",
                         },
-                      },
-                ]
+                    },
+                ],
             },
 
             {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
                 type: "asset/inline",
-          
             },
 
             {
