@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./style/index.css">
+    <link rel="stylesheet" type="text/css" href="./pages/index.css">
     <title>Mesto.Russia</title>
 </head>
 
@@ -79,18 +79,29 @@
         </div>
     </div>
 
+    <div class="popup popup_confirm-delete">
+        <form class="popup__container popup__container_confirm-delete" name="popup__confirm-delete" novalidate>
+            <button class="popup__close-button" type="button"></button>
+            <h3 class="popup__title popup__title_confirm">Вы уверены?</h3>
+            <button type="submit" class="form__submit form__submit_confirm-delete">Да</button>
+        </form>
+    </div>
+
     <template id="card-template">
         <article class="grid-card">
             <button class="grid-card__del" type="button"></button>
             <img src="" class="grid-card__img" alt="Изображение карточки">
             <div class="grid-card__wrapper">
                 <h3 class="grid-card__text">Камчатка</h3>
-                <button class="grid-card__like"></button>
+                <div class="grid-card__likes">
+                    <button class="grid-card__like"></button>
+                    <span class="grid-card__likes-count">0</span>
+                </div>
             </div>
         </article>
     </template>
 
-    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="./components/index.js"></script>
 
 </body>
 

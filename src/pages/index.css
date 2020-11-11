@@ -47,3 +47,10 @@
 @import url('../blocks/popup/__input-error/popup__input-error.css');
 @import url('../blocks/popup/__input-error/_active/popup__input-error_active.css');
 @import url('../blocks/popup/__input_type_error/popup__input_type_error.css');
+@import url('../blocks/grid-card/__likes/grid-card__likes.css');
+@import url('../blocks/grid-card/__likes-count/grid-card__likes-count.css');
+@import url('../blocks/popup/__container/_confirm-delete/popup__container_confirm-delete.css');
+@import url('../blocks/popup/__title/_confirm/popup__title_confirm.css');
+@import url('../blocks/form/__submit/_confirm-delete/form__submit_confirm-delete.css');
+
+
