@@ -16,7 +16,7 @@
 
         <section class="profile">
             <div class="profile__wrapper">
-                <img src="./images/kusto.jpg" class="profile__avatar" alt="Аватар пользователя">
+                <button class="profile__avatar"> </button>
                 <div class="profile__form">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__button-edit" type="button"></button>
@@ -46,6 +46,23 @@
                 <input type="text" id="interst-input" name="interst" placeholder="О себе"
                     class="form__input form__contact-interst" minlength="2" maxlength="200" required>
                 <span class="popup__input-error" id="interst-input-error"></span>
+                <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>
+                <button class="popup__close-button" type="button"></button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="popup popup_edit-avatar popup_opened">
+        <div class="popup__container">
+
+            <form class="form" action="#" name="popup__form_profile" novalidate>
+                <div class="form__new-item">
+                    <h2 class="form__title">Обновить аватар</h2>
+                </div>
+                <input type="url" id="link-input" name="link" class="form__input form__input_link"
+                    placeholder="Ссылка на изображение" required>
+                <span class="popup__input-error" id="link-input-error"></span>
                 <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>
                 <button class="popup__close-button" type="button"></button>
             </form>
