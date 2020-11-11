@@ -52,5 +52,6 @@
 @import url('../blocks/popup/__container/_confirm-delete/popup__container_confirm-delete.css');
 @import url('../blocks/popup/__title/_confirm/popup__title_confirm.css');
 @import url('../blocks/form/__submit/_confirm-delete/form__submit_confirm-delete.css');
+@import url('../blocks/form/__title/_edit-avatar/form__title_edit-avatar.css');
 
 
