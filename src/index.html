@@ -3,11 +3,95 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Webpack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style/index.css">
+    <title>Mesto.Russia</title>
 </head>
 
-<body>
-    <h1>Hello</h1>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="логотип Mesto.Russia">
+    </header>
+    <main class="content">
+
+        <section class="profile">
+            <div class="profile__wrapper">
+                <img src="./images/kusto.jpg" class="profile__avatar" alt="Аватар пользователя">
+                <div class="profile__form">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__button-edit" type="button"></button>
+                    <p class="profile__interst">Исследователь океана</p>
+                </div>
+            </div>
+            <button class="profile__button-add" type="button"></button>
+        </section>
+        <section class="cards-container">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
+    </footer>
+
+    <div class="popup popup_profile">
+        <div class="popup__container">
+
+            <form class="form" action="#" name="form-edit" novalidate>
+                <div class="form__contact-info">
+                    <h2 class="form__title">Редактировать профиль</h2>
+                </div>
+                <input type="text" id="name-input" name="name" class="form__input form__contact-name" placeholder="Имя"
+                    minlength="2" maxlength="40" required>
+                <span class="popup__input-error" id="name-input-error"></span>
+                <input type="text" id="interst-input" name="interst" placeholder="О себе"
+                    class="form__input form__contact-interst" minlength="2" maxlength="200" required>
+                <span class="popup__input-error" id="interst-input-error"></span>
+                <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>
+                <button class="popup__close-button" type="button"></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_add-img">
+        <div class="popup__container">
+
+            <form class="form" action="#" name="form-add" novalidate>
+                <div class="form__new-item">
+                    <h2 class="form__title">Новое место</h2>
+                </div>
+                <input type="text" id="title-input" name="name" class="form__input form__item-name"
+                    placeholder="Название" minlength="1" maxlength="30" required>
+                <span class="popup__input-error" id="title-input-error"></span>
+                <input type="url" id="link-input" name="link" class="form__input form__link-img"
+                    placeholder="Ссылка на картинку" required>
+                <span class="popup__input-error" id="link-input-error"></span>
+                <button type="submit" class="form__submit form__submit_disabled">Создать</button>
+                <button class="popup__close-button" type="button"></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_big-pic">
+        <div class="popup__container popup__container_background">
+            <button class="popup__close-button" type="button"></button>
+            <img class="popup__img-big" src="" alt="Увеличенное изображение карточки">
+            <h3 class="popup__title"></h3>
+        </div>
+    </div>
+
+    <template id="card-template">
+        <article class="grid-card">
+            <button class="grid-card__del" type="button"></button>
+            <img src="" class="grid-card__img" alt="Изображение карточки">
+            <div class="grid-card__wrapper">
+                <h3 class="grid-card__text">Камчатка</h3>
+                <button class="grid-card__like"></button>
+            </div>
+        </article>
+    </template>
+
+    <script type="module" src="./script/index.js"></script>
+
 </body>
 
 </html>
