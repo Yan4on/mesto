@@ -31,7 +31,7 @@ module.exports = {
             },
             // изображения
             {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+                test: /\.(?:ico|gif|png|jpg|jpeg|svg|)$/i,
 
                 use: [
                     {
@@ -44,7 +44,7 @@ module.exports = {
             },
 
             {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+                test: /\.(woff(2)?|eot|ttf|otf|)$/,
                 type: "asset/inline",
             },
 
