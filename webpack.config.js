@@ -5,7 +5,7 @@ const CssUrlRelativePlugin = require("css-url-relative-plugin");
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, "./src/script/index.js"),
+        main: path.resolve(__dirname, "./src/pages/index.js"),
     },
 
     output: {

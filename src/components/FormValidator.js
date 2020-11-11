@@ -53,7 +53,6 @@ export default class FormValidator {
     /*Установка обработчиков на все поля форм*/
     _setEventListeners() {
         const inputList = this._getInputList();
-        console.log(`FormVal: ${inputList}`);
         const buttonElement = this._getButtonElement();
         this._toggleButtonState(inputList, buttonElement);
 

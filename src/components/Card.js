@@ -1,6 +1,5 @@
 export default class Card {
     constructor(data, { openImagePopup }, cardTemplate) {
-        console.log(`Data: ${data.name} ${data.link}`);
         this._name = data.name;
         this._link = data.link;
         this._cardTemplate = cardTemplate;

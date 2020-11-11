@@ -29,7 +29,7 @@
         "webpack-dev-server": "^3.11.0"
     },
     "scripts": {
-        "build": "rd /s /q dist && npx webpack",
+        "build": "npx webpack",
         "dev": "npx webpack serve --mode development --env development --watch-content-base"
     },
     "author": "Shirokikh Yanis",

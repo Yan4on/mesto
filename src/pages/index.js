@@ -1,11 +1,11 @@
-import { initialCards } from "./initial-cards.js"; //импорт начальных карточек
-import Card from "./Card.js"; //импорт стартовых карточек
-import FormValidator from "./FormValidator.js"; //импорт валидации
-import Section from "./Section.js"; //импорт валидации
-import UserInfo from "./UserInfo.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import "../style/index.css";
+import { initialCards } from "../components/initial-cards.js"; //импорт начальных карточек
+import Card from "../components/Card.js"; //импорт стартовых карточек
+import FormValidator from "../components/FormValidator.js"; //импорт валидации
+import Section from "../components/Section.js"; //импорт валидации
+import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import "./index.css";
 import "../images/button-eadit.png.png";
 import "../images/Close Icon.svg";
 import "../images/cross.svg";
@@ -26,12 +26,6 @@ import "../images/эльбрус.2.png";
 //Форма профиля
 const profilePopup = document.querySelector(".popup_profile");
 const buttonEdit = document.querySelector(".profile__button-edit");
-const profileButtonClose = profilePopup.querySelector(".popup__close-button");
-const profileInputName = profilePopup.querySelector(".form__contact-name");
-const profileInputInfo = profilePopup.querySelector(".form__contact-interst");
-const profileName = document.querySelector(".profile__name");
-const profileInterst = document.querySelector(".profile__interst");
-const form = document.querySelector(".form");
 
 //Попап Add-image
 const imagePopup = document.querySelector(".popup_add-img");
@@ -40,9 +34,7 @@ const imageAddPopupButton = document.querySelector(".profile__button-add");
 const userInfo = new UserInfo(".profile__name", ".profile__interst");
 const popupImage = new PopupWithImage(".popup_big-pic");
 
-function addCardToPage(data) {
-    console.log(`add crad data: ${data.name} ${data.link}`);
-    console.log(`add crad data2: ${data["item-name"]} ${data.url}`);
+function addCardToPage(data) {    
     /*Создаем объект карточки*/
     const card = new Card(
         data,
