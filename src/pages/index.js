@@ -32,7 +32,43 @@ const imagePopup = document.querySelector(".popup_add-img");
 const imageAddPopupButton = document.querySelector(".profile__button-add");
 
 const userInfo = new UserInfo(".profile__name", ".profile__interst");
+const popupImage = new PopupWithImage(".popup_big-pic");
 
+/* == Разделил функцию на две ==*/
+//1 - создание карточки
+function getNewCard(data) {
+  return new Card(
+    data,
+    {
+      // Обработчик клика по картинке карточки
+      openImagePopup: () => {
+        const cardInfo = { name: data.name, link: data.link }; //получаем название и ссылку карточки
+        popupImage.setEventListeners();
+        popupImage.open(cardInfo);
+      },
+    },
+    "#card-template"
+  );
+}
+
+//2 - добавление карточки на страницу
+function addCardToPage(card) {
+  /*Создаем объект карточки*/
+  const cardNode = card.createCard(); // Вставляем разметку
+  cardsList.addItem(cardNode); // Добавляем на страницу
+}
+
+/*Создаем объект секции*/
+const cardsList = new Section(
+  {
+    data: initialCards,
+    renderer: (data) => {
+      const card = getNewCard(data);
+      addCardToPage(card);
+    },
+  },
+  ".cards-container"
+);
 
 /*Создаем объект для попапа редактирования профиля*/
 const popupEditProfile = new PopupWithForm(
@@ -51,65 +87,13 @@ const popupEditProfile = new PopupWithForm(
   ".popup_profile"
 );
 
-/*Создаем объект секции*/
-const cardsList = new Section(
-  {
-    data: initialCards,
-    renderer: (item) => {
-      /*Создаем объект карточки*/
-      const card = new Card(
-        item,
-        {
-          openImagePopup: () => {
-            const cardInfo = card.getCardInfo(); //получаем название и ссылку карточки
-            const popupImage = new PopupWithImage(".popup_big-pic");
-            popupImage.setEventListeners();
-            popupImage.open(cardInfo);
-          },
-        },
-        "#card-template"
-      );
-      const cardNode = card.createCard(); // Вставляем разметку
-      cardsList.addItem(cardNode); // Добавляем на страницу
-    },
-  },
-  ".cards-container"
-);
-
-/* Отрисовка карточек на страницу*/
-cardsList.renderItems();
-
 /*Создаем объект для попапа добавления карточки*/
 const popupAddCard = new PopupWithForm(
   {
-    getInfo: () => { },
     //Обработчик кнопки Создать
-    handleSubmit: (inputValues) => {
-      const cardsList = new Section(
-        {
-          data: [inputValues],
-          renderer: (item) => {
-            /*Создаем объект карточки*/
-            const card = new Card(
-              item,
-              {
-                openImagePopup: () => {
-                  // Обработчик клика по картинке - открытие попапа
-                  const cardInfo = card.getCardInfo(); //получаем название и ссылку карточки
-                  const popupImage = new PopupWithImage(".popup_big-pic");
-                  popupImage.setEventListeners();
-                  popupImage.open(cardInfo);
-                },
-              },
-              "#card-template"
-            );
-            const cardNode = card.createCard(); // Вставляем разметку
-            cardsList.addItem(cardNode); // Вставляем на страницу
-          },
-        },
-        ".cards-container"
-      );
-      cardsList.renderItems();
+    handleSubmit: (data) => {
+      const card = getNewCard(data);
+      addCardToPage(card);
       popupAddCard.close();
       addCardValidation.resetForm(); // Очищаем поля при Создании
     },
@@ -121,13 +105,15 @@ const popupAddCard = new PopupWithForm(
   ".popup_add-img"
 );
 
+/* Отрисовка начальных карточек на страницу*/
+cardsList.renderItems();
+
 /*Добавляем слушатели событий*/
 popupEditProfile.setEventListeners();
 popupAddCard.setEventListeners();
 buttonEdit.addEventListener("click", () => {
   const info = userInfo.getUserInfo();
-  popupEditProfile.popup.querySelector(".form__contact-name").value =
-    info.name;
+  popupEditProfile.popup.querySelector(".form__contact-name").value = info.name;
   popupEditProfile.popup.querySelector(".form__contact-interst").value =
     info.interst;
   popupEditProfile.open();
