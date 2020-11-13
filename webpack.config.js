@@ -7,7 +7,11 @@ module.exports = {
     entry: {
         main: path.resolve(__dirname, "./src/pages/index.js"),
     },
-
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 10000
+    },
     output: {
         path: path.resolve(__dirname, "./dist"),
         filename: "[name].bundle.js",
