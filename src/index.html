@@ -16,7 +16,7 @@
 
         <section class="profile">
             <div class="profile__wrapper">
-                <img src="./images/kusto.jpg" class="profile__avatar" alt="Аватар пользователя">
+                <button class="profile__avatar"> </button>
                 <div class="profile__form">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__button-edit" type="button"></button>
@@ -33,6 +33,9 @@
         <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
+    <div class="block-action"></div>
+    <div class="error-server"></div>
+
     <div class="popup popup_profile">
         <div class="popup__container">
 
@@ -46,6 +49,23 @@
                 <input type="text" id="interst-input" name="interst" placeholder="О себе"
                     class="form__input form__contact-interst" minlength="2" maxlength="200" required>
                 <span class="popup__input-error" id="interst-input-error"></span>
+                <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>
+                <button class="popup__close-button" type="button"></button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="popup popup_edit-avatar">
+        <div class="popup__container">
+
+            <form class="form" action="#" name="popup__form_profile" novalidate>
+                <div class="form__new-item">
+                    <h2 class="form__title form__title_edit-avatar">Обновить аватар</h2>
+                </div>
+                <input type="url" id="link-input" name="link" class="form__input form__input_link"
+                    placeholder="Ссылка на изображение" required>
+                <span class="popup__input-error" id="link-input-error"></span>
                 <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>
                 <button class="popup__close-button" type="button"></button>
             </form>
@@ -79,18 +99,29 @@
         </div>
     </div>
 
+    <div class="popup popup_confirm-delete">
+        <form class="popup__container popup__container_confirm-delete" name="popup__confirm-delete" novalidate>
+            <button class="popup__close-button" type="button"></button>
+            <h3 class="popup__title popup__title_confirm">Вы уверены?</h3>
+            <button type="submit" class="form__submit form__submit_confirm-delete">Да</button>
+        </form>
+    </div>
+
     <template id="card-template">
         <article class="grid-card">
             <button class="grid-card__del" type="button"></button>
             <img src="" class="grid-card__img" alt="Изображение карточки">
             <div class="grid-card__wrapper">
                 <h3 class="grid-card__text">Камчатка</h3>
-                <button class="grid-card__like"></button>
+                <div class="grid-card__likes">
+                    <button class="grid-card__like"></button>
+                    <span class="grid-card__likes-count">0</span>
+                </div>
             </div>
         </article>
     </template>
 
-    <script type="module" src="./pages/index.js"></script>
+    <script type="module" src="./pages/"></script>
 
 </body>
 

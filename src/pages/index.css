@@ -15,6 +15,7 @@
 @import url('../blocks/grid-card/grid-card.css');
 @import url('../blocks/cards-container/cards-container.css');
 @import url("../blocks/grid-card/__del/grid-card__del.css");
+@import url("../blocks/grid-card/__del/_active/grid-card__del_active.css");
 @import url("../blocks/grid-card/__img/grid-card__img.css");
 @import url("../blocks/grid-card/__text/grid-card__text.css");
 @import url("../blocks/grid-card/__like/grid-card__like.css");
@@ -47,3 +48,17 @@
 @import url('../blocks/popup/__input-error/popup__input-error.css');
 @import url('../blocks/popup/__input-error/_active/popup__input-error_active.css');
 @import url('../blocks/popup/__input_type_error/popup__input_type_error.css');
+@import url('../blocks/grid-card/__likes/grid-card__likes.css');
+@import url('../blocks/grid-card/__likes-count/grid-card__likes-count.css');
+@import url('../blocks/popup/__container/_confirm-delete/popup__container_confirm-delete.css');
+@import url('../blocks/popup/__title/_confirm/popup__title_confirm.css');
+@import url('../blocks/form/__submit/_confirm-delete/form__submit_confirm-delete.css');
+@import url('../blocks/form/__title/_edit-avatar/form__title_edit-avatar.css');
+@import url('../blocks/error-server/error-server.css');
+@import url('../blocks/error-server/_active/error-server_active.css');
+@import url('../blocks/block-action/block-action.css');
+@import url('../blocks/block-action/_active/block-action_active.css');
+
+
+
+
