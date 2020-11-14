@@ -69,7 +69,7 @@ const cardsList = new Section({
 );
 
 // Создаем объект профиля
-const userInfo = new UserInfo(".profile__title", ".profile__interst", ".profile__avatar");
+const userInfo = new UserInfo(".profile__name", ".profile__interst", ".profile__avatar");
 
 // Ждем, когда все промисы выполнятся и после рисуем страницу
 Promise.all([
@@ -221,16 +221,13 @@ const popupAddCard = new PopupWithForm(
 
 
 /*Добавляем слушатели событий*/
-popupEditAvatar.setEventListeners();
 popupEditProfile.setEventListeners();
 popupAddCard.setEventListeners();
-
-btnEditAvatar.addEventListener("click", () => { popupEditAvatar.open() });
 buttonEdit.addEventListener("click", () => {
   const info = userInfo.getUserInfo();
   popupEditProfile.popup.querySelector(".form__contact-name").value = info.name;
   popupEditProfile.popup.querySelector(".form__contact-interst").value = info.interst;
-  popupEditProfile.open(); 
+  popupEditProfile.open();
 });
 imageAddPopupButton.addEventListener("click", () => {
   popupAddCard.open();
