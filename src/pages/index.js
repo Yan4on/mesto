@@ -49,7 +49,7 @@ const api = new Api({
 })
 
 
-// Вывод ошибки запроса к серверу на страницу
+// Вывод ошибки запроса на серверу 
 function setErrorServer(err) {
   errorServer.textContent = `Ошибка при соединение с сервером: ${err}. Попробуйте повторить позднее`;
 
@@ -71,7 +71,7 @@ const cardsList = new Section({
 // Создаем объект профиля
 const userInfo = new UserInfo(".profile__name", ".profile__interst", ".profile__avatar");
 
-// Ждем, когда все промисы выполнятся и после рисуем страницу
+// Промисы выполняются => Страница рисуется
 Promise.all([
   api.getUserInfoFromServer(), // Получаем данные профиля
   api.getInitialCards() // Получаем массив карточек
@@ -108,7 +108,7 @@ function addCardToPage(dataCard) {
     dataCard,
     userInfo.id,
     {
-      // Обработчик клика по картинке карточки
+      // Обработчик клика по карточке
       handleClickImage: () => {
         const cardInfo = card.getCardInfo(); //получаем название и ссылку карточки            
         popupImage.setEventListeners();
@@ -121,11 +121,11 @@ function addCardToPage(dataCard) {
       },
       // Обработчик клика по лайку карточки
       handleLikeClick: () => {
-        // Если владелец лайка я, то делаем его активным
+        // Если лайк мой, то делаем его активным
         if (card.haveLikeOwner()) {
           api.likeDownCardToServer(card)
             .then((data) => {
-              // Ставим лайк и количество на основании того, что получено с сервера
+              // Ставим лайк и количество на основании того, что вернул сервер
               card.setCountLikeToPage(data.likes);
               card.setStateLike();
             })
