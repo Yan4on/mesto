@@ -220,18 +220,21 @@ const popupAddCard = new PopupWithForm(
 
 
 
-/*Добавляем слушатели событий*/
+// Добавляем слушатели событий
+popupEditAvatar.setEventListeners();
 popupEditProfile.setEventListeners();
 popupAddCard.setEventListeners();
+
+btnEditAvatar.addEventListener("click", () => { popupEditAvatar.open() });
 buttonEdit.addEventListener("click", () => {
-  const info = userInfo.getUserInfo();
-  popupEditProfile.popup.querySelector(".form__contact-name").value = info.name;
-  popupEditProfile.popup.querySelector(".form__contact-interst").value = info.interst;
-  popupEditProfile.open();
+   const info = userInfo.getUserInfo();
+   popupEditProfile.popup.querySelector(".form__contact-name").value = info.name;
+   popupEditProfile.popup.querySelector(".form__contact-interst").value = info.interst;
+   popupEditProfile.open();
 });
-imageAddPopupButton.addEventListener("click", () => {
-  popupAddCard.open();
+imageAddPopupButton.addEventListener("click", () => { popupAddCard.open() 
 });
+
 
 // ВАЛИДАЦИЯ //
 /*Выбираем форму и ее элементы для валидации */
