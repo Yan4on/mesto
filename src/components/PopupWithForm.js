@@ -14,9 +14,13 @@ export default class PopupWithForm extends Popup {
   _getInputValues() {
     this._inputList = this.popup.querySelectorAll(".form__input");
     this._popupValues = {};
+    console.log(this._inputList)
     this._inputList.forEach(
-      (input) => (this._popupValues[input.name] = input.value)
+      (input) => {        
+        this._popupValues[input.name] = input.value
+      }
     );
+    console.log(this._popupValues);
     return this._popupValues;
   }
 
@@ -44,7 +48,7 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     //навешиваем обработчик кнопки Сохранить/Создать
-    this.popup.addEventListener("submit", () => {
+    this.popup.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleSubmit(this._getInputValues());
     });

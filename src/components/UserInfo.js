@@ -13,7 +13,7 @@ export default class UserInfo {
   }
 
   //установить данные на страницу
-  setUserInfo({ name, interst, avatar, _id }) {
+  setUserInfo({ name, about, avatar, _id }) {
     this.id = _id;
     // Так как при редактировании профиля аватар не ставится, то проверка
     if (avatar) {
@@ -24,8 +24,8 @@ export default class UserInfo {
       this._profileName.textContent = name;
     }
 
-    if (interst) {
-      this._profileInterst.textContent = interst;
+    if (about) {
+      this._profileInterst.textContent = about;
     }
   }
 }

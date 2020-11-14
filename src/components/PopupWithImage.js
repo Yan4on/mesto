@@ -1,15 +1,19 @@
-export default class Section {
-    constructor({ renderer }, containerSelector) {
-      this._renderer = renderer;
-      this._container = document.querySelector(containerSelector);
+import Popup from "./Popup.js";
+
+export default class PopupWithImage extends Popup {
+    constructor(popupSelector) {
+        super(popupSelector);
     }
-  
-    renderItems(cards) {
-      cards.forEach((card) => { this._renderer(card) });
+
+    // Открываем попап Добавления карточки, дополнительно вставлям ссылку, alt и название
+    open({ name, link }) {
+        super.open();
+        const image = this.popup.querySelector(".popup__img-big");
+
+        const title = this.popup.querySelector(".popup__title");
+
+        image.src = link;
+        image.alt = name;
+        title.textContent = name;
     }
-  
-    addItem(element) {
-      this._container.prepend(element);
-    }
-  }
-  
+}

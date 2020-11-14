@@ -5,7 +5,7 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithSubmit from "../components/PopupWithSubmit.js"; //импорт класса, отвечающего за попапы с подтверждением
-import Api from "../components/Api.js"; 
+import Api from "../components/Api.js";
 import "./index.css";
 import "../images/button-eadit.png.png";
 import "../images/Close Icon.svg";
@@ -102,6 +102,7 @@ const popupDeleteConfirm = new PopupWithSubmit(
 
 // Добавление карточки на страницу
 function addCardToPage(dataCard) {
+  console.log(`Пришло ${dataCard}`)
   // Создаем объект карточки
   const card = new Card(
     dataCard,
@@ -152,11 +153,11 @@ const popupEditProfile = new PopupWithForm(
     handleSubmit: (inputValues) => {
       popupEditProfile.loadStart();           // Включаем блок и меняем название кнопки
       api.saveUserInfoToServer(inputValues)   // Сохраняем на сервере
-        .then((info) => { 
+        .then((info) => {
           userInfo.setUserInfo(info);
           popupEditProfile.close();
           editProfileValidation.resetForm(); // Очищаем поля при Создании
-         }) // Устанавливаем данные о пользователе на страницу
+        }) // Устанавливаем данные о пользователе на страницу
         .catch((err) => { setErrorServer(err); })
         .finally(() => {
           popupEditProfile.loadEnd();     //Снимаем блок и меняем название кнопки на начальное          
@@ -175,7 +176,7 @@ const popupEditAvatar = new PopupWithForm({
   handleSubmit: (inputValues) => {
     popupEditAvatar.loadStart();
     api.saveAvatarToServer(inputValues)
-      .then((info) => { 
+      .then((info) => {
         userInfo.setUserInfo(info); // Устанавливаем данные о пользователе на страницу
         popupEditAvatar.close();
         editAvatarValidation.resetForm(); // Очищаем поля при Создании }) 
@@ -200,8 +201,8 @@ const popupAddCard = new PopupWithForm(
     handleSubmit: (inputValues) => {
       popupAddCard.loadStart();
       api.saveCardToServer(inputValues)
-        .then((card) => {
-          addCardToPage(card); //Добавляем карточку на страницу
+        .then((data) => {
+          addCardToPage(data); //Добавляем карточку на страницу
           popupAddCard.close();
           addCardValidation.resetForm(); // Очищаем поля при Создании
         })
@@ -218,8 +219,6 @@ const popupAddCard = new PopupWithForm(
   ".popup_add-img"
 );
 
-
-
 // Добавляем слушатели событий
 popupEditAvatar.setEventListeners();
 popupEditProfile.setEventListeners();
@@ -227,14 +226,14 @@ popupAddCard.setEventListeners();
 
 btnEditAvatar.addEventListener("click", () => { popupEditAvatar.open() });
 buttonEdit.addEventListener("click", () => {
-   const info = userInfo.getUserInfo();
-   popupEditProfile.popup.querySelector(".form__contact-name").value = info.name;
-   popupEditProfile.popup.querySelector(".form__contact-interst").value = info.interst;
-   popupEditProfile.open();
+  const info = userInfo.getUserInfo();
+  popupEditProfile.popup.querySelector(".form__contact-name").value = info.name;
+  popupEditProfile.popup.querySelector(".form__contact-interst").value = info.interst;
+  popupEditProfile.open();
 });
-imageAddPopupButton.addEventListener("click", () => { popupAddCard.open() 
+imageAddPopupButton.addEventListener("click", () => {
+  popupAddCard.open()
 });
-
 
 // ВАЛИДАЦИЯ //
 /*Выбираем форму и ее элементы для валидации */
